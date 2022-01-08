@@ -1,0 +1,10 @@
+.sidebar {
+  display:flex;
+  justify-content: center;
+  align-items: start;
+  position:fixed;
+  left:0;
+  width:360px;
+  height:100vh;
+  background-color: #FCD1D1;
+}

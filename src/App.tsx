@@ -1,9 +1,12 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Layout from "./Layout/Layout";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Layout />
+    </div>
+  );
 }
 
 export default App;

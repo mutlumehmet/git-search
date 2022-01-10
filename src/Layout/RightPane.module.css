@@ -4,5 +4,7 @@
   align-items: start;
   height:100%;
   width:100%;
-  background-color: #ECE2E1;
+  padding-top: 9px;
+  background-color: lightgray;
+  overflow-y: scroll;
 }

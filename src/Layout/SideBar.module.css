@@ -1,8 +1,10 @@
 .sidebar {
   display:flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction:column;
+  justify-content: start;
+  align-items: center;
   width:360px;
   height:100%;
-  background-color: #FCD1D1;
+  padding-top:9px;
+  background-color: #fff;
 }

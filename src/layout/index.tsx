@@ -1,3 +1,3 @@
-export { default as Nav } from "./Nav";
-export { default as RightPane } from "./RightPane";
-export { default as SideBar } from "./SideBar";
+export { default as NavBar } from "./navbar/NavBar";
+export { default as RightPane } from "./right-pane/RightPane";
+export { default as SideBar } from "./sidebar/SideBar";

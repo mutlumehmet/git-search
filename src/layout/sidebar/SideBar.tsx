@@ -1,5 +1,5 @@
 import styles from "./SideBar.module.css";
-import SidebarMenuButton from "../components/SideBar/SidebarMenuButton";
+import SidebarMenuButton from "./components/SidebarMenuButton";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
@@ -11,13 +11,13 @@ const SideBar = () => {
         icon={InsertDriveFileIcon}
         title="Repositories"
         counter={2555}
-        isClicked="active"
+        isClicked="normal"
       />
       <SidebarMenuButton
         icon={InsertEmoticonIcon}
         title="Users"
         counter={3}
-        isClicked="normal"
+        isClicked="active"
       />
       <SidebarMenuButton
         icon={BookmarkBorderIcon}

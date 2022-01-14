@@ -1,7 +1,7 @@
 import { NavBar, SideBar, RightPane } from ".";
-import styles from "./Layout.module.css";
+import styles from "./MainLayout.module.css";
 
-const Layout = () => {
+const MainLayout = () => {
   return (
     <div className={styles.main}>
       <div className={styles["nav-row"]}>
@@ -15,4 +15,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default MainLayout;

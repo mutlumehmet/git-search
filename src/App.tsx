@@ -1,9 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
-  return <div></div>;
+  return <MainLayout />;
 }
 
 export default App;

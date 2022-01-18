@@ -8,12 +8,7 @@ const SearchInput = () => {
       {/* <div className={styles["search-icon"]}> */}
       <SearchIcon className={styles["search-icon"]} />
       {/* </div> */}
-      <input
-        className={styles["search-input"]}
-        type="text"
-        id="search"
-        placeholder="Search for repo or user"
-      ></input>
+      <input type="text" id="search" placeholder="Search for repo or user" />
     </div>
   );
 };

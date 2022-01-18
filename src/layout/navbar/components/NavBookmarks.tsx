@@ -5,8 +5,8 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 const NavBookmarks = () => {
   return (
     <div className={styles["navbookmarks-box"]}>
-      <BookmarkBorderIcon style={{ color: "fff" }} />
-      <p>Bookmarks</p>{" "}
+      <BookmarkBorderIcon className={styles["navbookmarks-icon"]} />
+      <p>Bookmarks</p>
     </div>
   );
 };

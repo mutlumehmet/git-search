@@ -1,12 +1,13 @@
 .menu-button__container {
-width: 320px;
-height:46px;
-padding: 0 20px 0 20px;
-display: flex;
-flex-direction:row;
-align-items: center;
-justify-content:flex-start;
-cursor:pointer;
+  width: 320px;
+  height: 46px;
+  padding: 0 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .menu-button__container--bgcolor--normal {
@@ -18,38 +19,37 @@ cursor:pointer;
 }
 
 .menu-button__icon--normal {
-  color:#747474;
+  color: #747474;
 }
 
 .menu-button__icon--active {
-  color:#37609d;
+  color: #37609d;
 }
 
 .menu-button__title {
   font-family: Roboto;
-  font-size: 16px; 
-  padding-left:36px;
-  
+  font-size: 16px;
+  padding-left: 36px;
 }
 
 .menu-button__title--color--normal {
-  color:#1d1d1d;
+  color: #1d1d1d;
 }
 
 .menu-button__title--color--active {
-  color:#5073aa;
+  color: #5073aa;
 }
 
 .menu-button__counter {
   font-family: Roboto;
   font-size: 16px;
-  margin-left:auto;  
+  margin-left: auto;
 }
 
 .menu-button__counter--color--normal {
-  color:#1d1d1d;
+  color: #1d1d1d;
 }
 
 .menu-button__counter--color--active {
-  color:#5073aa;;
+  color: #5073aa;
 }

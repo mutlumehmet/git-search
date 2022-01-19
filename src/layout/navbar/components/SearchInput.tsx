@@ -6,11 +6,12 @@ import { repoSearchURL } from "services/apiUrls";
 const SearchInput = () => {
   const { data, isLoading, error, handleRepoSearchRequest } =
     useRequestRepoSearchAPI();
+
   console.log({ data, isLoading, error });
-  console.log(repoSearchURL);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length >= 3) {
-      handleRepoSearchRequest!!(event.target.value);
+      handleRepoSearchRequest(`${repoSearchURL}${event.target.value}`);
     }
   };
 

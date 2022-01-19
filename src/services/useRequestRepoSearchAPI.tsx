@@ -6,14 +6,13 @@ const useRequestRepoSearchAPI = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleRepoSearchRequest = async (searchParameter: string) => {
-    const URL = `https://api.github.com/search/repositories?q=${searchParameter}`;
+  const handleRepoSearchRequest = async (URL: string) => {
     setIsLoading(true);
     setError(null);
+
     try {
       const response = await axios.get(URL);
       const repodata = await response.data;
-
       const transRepos = repodata.items.map((repoData: any) => {
         return {
           repoId: repoData.id,

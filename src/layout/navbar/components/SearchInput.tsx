@@ -1,12 +1,13 @@
-import React, { useState } from "react";
 import styles from "./SearchInput.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import useRequestRepoSearchAPI from "services/useRequestRepoSearchAPI";
+import { repoSearchURL } from "services/apiUrls";
 
 const SearchInput = () => {
-  const [data, handleRepoSearchRequest] = useRequestRepoSearchAPI();
-  console.log(data);
-
+  const { data, isLoading, error, handleRepoSearchRequest } =
+    useRequestRepoSearchAPI();
+  console.log({ data, isLoading, error });
+  console.log(repoSearchURL);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length >= 3) {
       handleRepoSearchRequest!!(event.target.value);

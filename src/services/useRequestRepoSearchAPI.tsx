@@ -1,26 +1,34 @@
 import axios from "axios";
 import { useState } from "react";
+
 const useRequestRepoSearchAPI = () => {
   const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleRepoSearchRequest = async (input: string) => {
-    const URLPar = input;
-    const RepoURL = `https://api.github.com/search/repositories?q=${URLPar}`;
+  const handleRepoSearchRequest = async (searchParameter: string) => {
+    const URL = `https://api.github.com/search/repositories?q=${searchParameter}`;
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(URL);
+      const repodata = await response.data;
 
-    const response = await axios.get(RepoURL);
-    const repodata = await response.data;
-
-    const transRepos = repodata.items.map((repoData: any) => {
-      return {
-        repoId: repoData.id,
-        repoTitle: repoData.full_name,
-        repoText: repoData.description,
-      };
-    });
-    setData(transRepos);
+      const transRepos = repodata.items.map((repoData: any) => {
+        return {
+          repoId: repoData.id,
+          repoTitle: repoData.full_name,
+          repoText: repoData.description,
+        };
+      });
+      setData(transRepos);
+    } catch (err: any) {
+      setError(err.message || "Somethin went wrong!");
+    }
+    setIsLoading(false);
   };
 
-  return [data, handleRepoSearchRequest];
+  return { data, isLoading, error, handleRepoSearchRequest };
 };
 
 export default useRequestRepoSearchAPI;

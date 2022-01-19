@@ -1,6 +1,6 @@
-const searchParameter = `mmt`;
-const repoTitle = `mutlumehmet/findplaylist`;
-const userName = `mutlumehmet`;
+// const searchParameter = `mmt`;
+// const repoTitle = `mutlumehmet/findplaylist`;
+// const userName = `mutlumehmet`;
 
 export const repoSearchURL = `https://api.github.com/search/repositories?q=${searchParameter}`;
 export const userSearchURL = `https://api.github.com/search/users?q=${searchParameter}`;

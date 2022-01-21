@@ -2,6 +2,7 @@ import styles from "./SearchInput.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import useRequestRepoSearchAPI from "services/useRequestRepoSearchAPI";
 import { repoSearchURL } from "services/apiUrls";
+import { SpinnerCircularFixed } from "spinners-react";
 
 const SearchInput = () => {
   const { data, isLoading, error, handleRepoSearchRequest } =
@@ -23,6 +24,12 @@ const SearchInput = () => {
         id="search"
         placeholder="Search for repo or user"
         onChange={handleChange}
+      />
+      <SpinnerCircularFixed
+        size="25"
+        color="#fff"
+        thickness={150}
+        enabled={isLoading}
       />
     </div>
   );

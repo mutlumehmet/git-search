@@ -1,8 +1,10 @@
-import styles from "./SearchInput.module.css";
-import SearchIcon from "@mui/icons-material/Search";
+import apiConstants from "services/apiUrlsAndData";
 import useRequestRepoSearchAPI from "services/useRequestRepoSearchAPI";
-import { apiURLs } from "services/apiUrlsAndData";
 import { SpinnerCircularFixed } from "spinners-react";
+
+import SearchIcon from "@mui/icons-material/Search";
+
+import styles from "./SearchInput.module.css";
 
 const SearchInput = () => {
   const { data, isLoading, error, handleRepoSearchRequest } =
@@ -12,7 +14,9 @@ const SearchInput = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length >= 3) {
-      handleRepoSearchRequest(`${apiURLs.repoSearchURL}${event.target.value}`);
+      handleRepoSearchRequest(
+        `${apiConstants.apiURLs.repoSearchURL}${event.target.value}`
+      );
     }
   };
 

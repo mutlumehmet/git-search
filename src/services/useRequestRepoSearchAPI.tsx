@@ -1,6 +1,7 @@
-import axios from "axios";
 import { useState } from "react";
-import { responseMessage } from "services/apiUrlsAndData";
+import axios from "axios";
+
+import apiConstants from "./apiUrlsAndData";
 
 const useRequestRepoSearchAPI = () => {
   const [data, setData] = useState();
@@ -16,21 +17,23 @@ const useRequestRepoSearchAPI = () => {
       const repodata = response.data.items;
 
       if (typeof repodata === undefined || null) {
-        setError(responseMessage.unknown);
+        setError(apiConstants.responseMessage.unknown);
       } else if (repodata.length <= 0) {
-        setError(responseMessage.empty);
+        setError(apiConstants.esponseMessage.empty);
       } else {
-        const transRepos = repodata.map((repoData: any) => {
-          return {
-            repoId: repoData.id,
-            repoTitle: repoData.full_name,
-            repoText: repoData.description,
-          };
-        });
+        const transRepos = repodata.map(
+          (repoData: { [key: string]: string }) => {
+            return {
+              repoId: repoData.id,
+              repoTitle: repoData.full_name,
+              repoText: repoData.description,
+            };
+          }
+        );
         setData(transRepos);
       }
     } catch (err: any) {
-      setError(err.message || responseMessage.unknown);
+      setError(err.message || apiConstants.responseMessage.unknown);
     }
     setIsLoading(false);
   };

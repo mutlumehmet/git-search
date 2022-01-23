@@ -1,10 +1,11 @@
-import styles from "./SideBar.module.css";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
+import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
+
 import SidebarMenuButton, {
   ISideMenuButtonProps,
 } from "./components/SidebarMenuButton";
-import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
-import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import styles from "./SideBar.module.css";
 
 const menuButtonsData: ISideMenuButtonProps[] = [
   {

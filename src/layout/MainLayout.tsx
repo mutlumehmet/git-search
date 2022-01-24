@@ -1,4 +1,4 @@
-import { NavBar, SideBar, RightPane } from ".";
+import { NavBar, RightPane, SideBar } from "./";
 import styles from "./MainLayout.module.css";
 
 const MainLayout = () => {

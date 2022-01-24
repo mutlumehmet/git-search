@@ -1,5 +1,6 @@
-import styles from "./NavBookmarks.module.css";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+
+import styles from "./NavBookmarks.module.css";
 
 const NavBookmarks = () => {
   return (

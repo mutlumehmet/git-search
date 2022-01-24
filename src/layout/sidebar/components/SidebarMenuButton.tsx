@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import styles from "./SidebarMenuButton.module.css";
 
 type State = "normal" | "active";

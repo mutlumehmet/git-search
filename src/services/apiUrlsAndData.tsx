@@ -1,4 +1,6 @@
-const apiConstants: { [key: string]: { [key: string]: string } } = {
+type UrlAndData<T> = { [key: string]: T };
+
+const apiConstants: UrlAndData<UrlAndData<string>> = {
   apiURLs: {
     repoSearchURL: `https://api.github.com/search/repositories?q=`, //${searchParameter}
     userSearchURL: `https://api.github.com/search/users?q=`, //${searchParameter}

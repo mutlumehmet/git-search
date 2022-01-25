@@ -3,34 +3,35 @@ import axios from "axios";
 
 import { apiConstants } from "./";
 
-const useRequestRepoSearchAPI = () => {
+const useRequestUserSearchAPI = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<null | undefined | string>(null);
 
-  const handleRepoSearchRequest = async (URL: string) => {
+  const handleUserSearchRequest = async (URL: string) => {
     setIsLoading(true);
     setError(null);
 
     try {
       const response = await axios.get(URL);
-      const repodata = response.data.items;
+      const userdata = response.data.items;
 
-      if (typeof repodata === undefined || null) {
+      if (typeof userdata === undefined || null) {
         setError(apiConstants.responseMessage.unknown);
-      } else if (repodata.length <= 0) {
+      } else if (userdata.length <= 0) {
         setError(apiConstants.responseMessage.empty);
       } else {
-        const transRepos = repodata.map(
-          (repoData: { [key: string]: string }) => {
+        const transUsers = userdata.map(
+          (userData: { [key: string]: string }) => {
             return {
-              repoId: repoData.id,
-              repoTitle: repoData.full_name,
-              repoText: repoData.description,
+              userId: userData.id,
+              userTitle: userData.login,
+              userText: userData.html_url,
+              userImgUrl: userData.avatar_url,
             };
           }
         );
-        setData(transRepos);
+        setData(transUsers);
       }
     } catch (err: any) {
       setError(err.message || apiConstants.responseMessage.unknown);
@@ -38,7 +39,7 @@ const useRequestRepoSearchAPI = () => {
     setIsLoading(false);
   };
 
-  return { data, isLoading, error, handleRepoSearchRequest };
+  return { data, isLoading, error, handleUserSearchRequest };
 };
 
-export default useRequestRepoSearchAPI;
+export default useRequestUserSearchAPI;

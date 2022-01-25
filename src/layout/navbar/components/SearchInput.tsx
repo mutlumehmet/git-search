@@ -1,5 +1,8 @@
-import apiConstants from "services/apiUrlsAndData";
-import useRequestRepoSearchAPI from "services/useRequestRepoSearchAPI";
+import {
+  apiConstants,
+  useRequestRepoSearchAPI,
+  useRequestUserSearchAPI,
+} from "services";
 import { SpinnerCircularFixed } from "spinners-react";
 
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,15 +10,31 @@ import SearchIcon from "@mui/icons-material/Search";
 import styles from "./SearchInput.module.css";
 
 const SearchInput = () => {
-  const { data, isLoading, error, handleRepoSearchRequest } =
-    useRequestRepoSearchAPI();
+  const {
+    data: repoData,
+    isLoading: repoIsLoading,
+    error: repoError,
+    handleRepoSearchRequest,
+  } = useRequestRepoSearchAPI();
+  const {
+    data: userData,
+    isLoading: userIsLoading,
+    error: userError,
+    handleUserSearchRequest,
+  } = useRequestUserSearchAPI();
 
-  console.log({ data, isLoading, error });
+  console.log(
+    { repoData, repoIsLoading, repoError },
+    { userData, userIsLoading, userError }
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length >= 3) {
       handleRepoSearchRequest(
         `${apiConstants.apiURLs.repoSearchURL}${event.target.value}`
+      );
+      handleUserSearchRequest(
+        `${apiConstants.apiURLs.userSearchURL}${event.target.value}`
       );
     }
   };
@@ -34,7 +53,7 @@ const SearchInput = () => {
         color="#fff"
         secondaryColor="rgba(0,0,0,0.11)"
         thickness={150}
-        enabled={isLoading}
+        enabled={repoIsLoading || userIsLoading}
       />
     </div>
   );
